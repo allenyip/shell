@@ -1,0 +1,104 @@
+/*
+ * Robot Stylesheet
+ * Version 1.0
+ */
+var monitor,monitor_elem,input;
+function fit(){
+    monitor_elem.scrollTop=monitor_elem.scrollHeight;
+}
+function strip(str){
+    return str.replace(/(^\s+)|(\s+$)/g,'')
+}
+function jump_page(url)
+{
+    window.open(url, "_blank");
+}
+function output(txt){
+    txt=strip(txt).replace(/ /g,"\u00a0")
+    var txt_array=txt.split("\r\n");
+    if(txt_array.length==1){
+        txt_array=txt.split("\r")
+    }
+    if(txt_array.length==1){
+        txt_array=txt.split("\n")
+    }
+    for(
+        var i=txt_array.length-1;
+        i>=0;
+        --i
+    ){
+    monitor.append(document.createTextNode(txt_array[i]));
+    monitor.append(document.createElement("br"))
+    }
+}
+function command(cmd){
+    switch(strip(cmd)){
+        case 'cls':case 'clear'://clear screen
+            monitor_elem.innerHTML=jQuery.browser.msie?' ':'';
+        break;
+		case 'about'://about
+		    output("\nDescription: A shell robot created by Allen.\nMaster: Allen Yip\nBirthday:20130216\nGender: male\nName: Birman");
+		break;
+		case'v':case 'version'://version
+            output("Version 1.0");
+        break;
+		case '?':case 'help'://help
+            output($("#cmd_help").text());
+        break;
+		case 'time'://current date
+			output(Date());
+        break;
+		case 'blog'://Blog
+			 jump_page("http://allenyip.com");
+        break;
+		case 'twitter'://Twitter
+			 jump_page("http://twitter.com/allenyipp");
+        break;
+		case 'weibo'://Weibo
+			 jump_page("http://weibo.com/boring");
+        break;
+		case 'facebook'://FaceBook
+			 jump_page("http://www.facebook.com/allenyipp");
+        break;
+		case 'github'://Github
+			 jump_page("http://github.com/allenyip");
+        break;
+		case 'instagram'://Instagram
+			 jump_page("http://instagram.com/allenyipp");
+        break;
+		case 'google'://Google+
+			 jump_page("http://plus.google.com/104655711123228438945/posts");
+        break;
+		case 'douban'://Douban
+			 jump_page("http://www.douban.com/people/allenyip");
+        break;
+        default:
+            output("I can't understand " + cmd + ", check ? or help");
+        break;
+    }
+}
+$(function(){
+    monitor=$("#monitor"),monitor_elem=monitor.get(0),input=$("#input");
+    $("body").click(function(){
+        input.focus()
+        input.attr('value',input.attr('value'))
+    });
+    input.focus().keydown(function(e){
+        if(e.keyCode==13){
+            var value=input.attr('value')
+            if(value){
+                monitor.append(document.createTextNode(">>> "));
+                var span=document.createElement("span");
+                span.className="green_font";
+                span.appendChild(document.createTextNode(input.attr('value')));
+                monitor.append(span);
+                monitor.append(document.createElement("br"))
+                fit()
+                input.attr('value','')
+                command(value)
+                fit()
+            }
+        }
+    })
+	output("Hi, My name is Birman, I know something, please type ? or help to start :)")
+})

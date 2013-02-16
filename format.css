@@ -1,0 +1,32 @@
+body{
+background:#000;
+margin:0;
+width:100%;
+padding:0;
+overflow:hidden;
+font-size:1em;
+color:#E0E0E0;
+font-family: 'Droid Sans Mono', arial, serif;
+}
+.input{
+font-family: 'Droid Sans Mono', arial, serif;
+font-size:1em;
+width:100%;
+margin:0;
+padding:0;
+background:#000;
+color:#55FF55;
+border:0;
+border-top:1px #000 solid;
+padding:.3em;
+padding-left:2em;
+}
+.green_font{
+color:#55FF55;
+}
+#monitor{
+width:100%;
+font-size:1em;
+font-family: 'Droid Sans Mono', arial, serif;
+overflow:auto;position:absolute;top:0;bottom:1.8em;left:0;right:0;background:#000;color:#e0e0e0;padding:.3em;margin:0
+}
