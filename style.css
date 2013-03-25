@@ -37,7 +37,7 @@ function command(cmd){
             monitor_elem.innerHTML=jQuery.browser.msie?' ':'';
         break;
 		case 'about'://about
-		    output("\nHave a good day :)\nI don't like self-introduction, you can input ? to find places I went in Internet.\nHello, my name is Allen, I am a student study IT in Xiamen University, China.");
+		    output("\nHave a good day :)\nI don't like self-introduction, you can input ? to find me on the Internet.\nHello, my name is Allen, I am a student study IT in Xiamen University, China.");
 		break;
 		case'v':case 'version'://version
             output("Version 1.0");
