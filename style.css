@@ -37,7 +37,7 @@ function command(cmd){
             monitor_elem.innerHTML=jQuery.browser.msie?' ':'';
         break;
 		case 'about'://about
-		    output("\nDescription: A shell robot created by Allen.\nMaster: Allen Yip\nBirthday:20130216\nGender: male\nName: Birman");
+		    output("\nHave a good day :)\nI don't like self-introduction, you can input ? to find places I went in Internet.\nHello, my name is Allen, I am a student study IT in Xiamen University, China.");
 		break;
 		case'v':case 'version'://version
             output("Version 1.0");
@@ -73,7 +73,7 @@ function command(cmd){
 			 jump_page("http://www.douban.com/people/allenyip");
         break;
         default:
-            output("I can't understand " + cmd + ", check ? or help");
+            output("Command doesn't support " + cmd + ", check ? or help");
         break;
     }
 }
@@ -100,5 +100,5 @@ $(function(){
             }
         }
     })
-	output("Hi, My name is Birman, I know something, please type ? or help to start :)")
+	output("Please type ? or help to start :)")
 })
