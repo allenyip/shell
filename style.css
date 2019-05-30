@@ -49,7 +49,7 @@ function command(cmd){
 			output(Date());
         break;
 		case 'blog'://Blog
-			 jump_page("http://allenyip.com");
+			 jump_page("http://allenyip.github.io");
         break;
 		case 'twitter'://Twitter
 			 jump_page("http://twitter.com/allenyipp");
